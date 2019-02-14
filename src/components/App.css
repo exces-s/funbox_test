@@ -44,6 +44,7 @@
 }
 
 .points-block {
+  list-style: none;
   width: 100%;
   margin-top: 20px;
   display: flex;
@@ -61,6 +62,10 @@
   background: tan;
 }
 
+.point + .point {
+  margin-top: 10px;
+}
+
 .text {
   width: calc(100% - 20px);
 }
@@ -68,6 +73,18 @@
 .close-btn {
   max-width: 30px;
   min-width: 30px;
+  /* background: url('../cross.svg'); */
+  /* background-size: contain; */
+}
+
+.close-btn:hover {
+  background: pink;
+  transition: 500ms;
+}
+
+.close-btn:active {
+  background: white;
+  transition: 0ms;
 }
 
 .map {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Map, Marker, MarkerLayout } from 'yandex-map-react';
 import './App.css';
+// import Cross from '../cross.svg';
+
 
 class App extends Component {
   handleSubmit = (e) => {
@@ -10,6 +12,10 @@ class App extends Component {
 
   handleChange = (e) =>  {
     this.props.updateInputText({ text: e.target.value });
+  }
+
+  removePoint = (id) => () => {
+    this.props.removePoint({ id })
   }
   
   renderForm() {
@@ -27,14 +33,14 @@ class App extends Component {
 
   renderPoint(point) {
     return (
-      <div key={point.id} className="point">
+      <li key={point.id} className="point">
         <div className="text">
-          {JSON.stringify(point)}
+          {point.name}
         </div>
-        <div className="close-btn">
+        <div className="close-btn" onClick={this.removePoint(point.id)}>
           X
         </div>
-      </div>
+      </li>
     )
   }
 
@@ -46,9 +52,9 @@ class App extends Component {
     }
 
     return (
-      <div className="points-block">
+      <ul className="points-block" id="points-block">
         {points.map(i => this.renderPoint(i))}
-      </div>
+      </ul>
     )
   }
   
