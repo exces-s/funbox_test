@@ -5,6 +5,8 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "react": "^16.8.1",
+    "react-dnd": "^7.0.2",
+    "react-dnd-html5-backend": "^7.0.2",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.5",
@@ -12,6 +14,7 @@
     "redux-actions": "^2.6.4",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
+    "sortablejs": "^1.8.3",
     "yandex-map-react": "^1.1.1"
   },
   "scripts": {
