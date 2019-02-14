@@ -1,11 +1,15 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
 import * as actions from '../actions';
+import { omit } from 'lodash';
 
 
 const points = handleActions({
   [actions.addPoint](state, { payload }) {
     return { ...state, [payload.id]: payload };
+  },
+  [actions.removePoint](state, { payload: { id } }) {
+    return omit(state, id);
   },
 }, {});
 
