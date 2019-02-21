@@ -5,6 +5,9 @@ import { omit } from 'lodash';
 
 
 const points = handleActions({
+  [actions.getYaMapDataSuccess](state, { payload }) {
+    return { ...state, ...payload };
+  },
   [actions.addPoint](state, { payload }) {
     return { ...state, [payload.id]: payload };
   },
@@ -23,5 +26,34 @@ const inputText = handleActions({
   }
 }, '');
 
+const itemsOrder = handleActions({
+  [actions.addPoint](state, { payload }) {
+    return [...state, payload.id];
+  },
+  [actions.removePoint](state, { payload: { id } }) {
+    return state.filter(pointId => pointId !== id);
+  },
+  [actions.updatePointsOrder](state, { payload: { items } }) {
+    return [...items];
+  },
+}, []);
 
-export default combineReducers({ points, inputText });
+const yaMapDataRequest = handleActions({
+  [actions.getYaMapDataRequest]() {
+    return 'requested';
+  },
+  [actions.getYaMapDataSuccess]() {
+    return 'successed';
+  },
+  [actions.getYaMapDataFailure]() {
+    return 'failured';
+  },
+}, 'none')
+
+
+export default combineReducers({
+  points,
+  inputText,
+  itemsOrder,
+  yaMapDataRequest
+});
