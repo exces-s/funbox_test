@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Map, Marker, MarkerLayout } from 'yandex-map-react';
 import './App.css';
+import List from './List';
 // import Cross from '../cross.svg';
 
 
 class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addPoint({ name: this.props.inputText });
+    this.props.getYaMapData({ query: this.props.inputText });
   }
 
   handleChange = (e) =>  {
@@ -31,32 +32,23 @@ class App extends Component {
     );
   }
 
-  renderPoint(point) {
-    return (
-      <li key={point.id} className="point">
-        <div className="text">
-          {point.name}
-        </div>
-        <div className="close-btn" onClick={this.removePoint(point.id)}>
-          X
-        </div>
-      </li>
-    )
-  }
-
   renderPointsBlock() {
-    const { points } = this.props;
+    const { points, itemsOrder } = this.props;
 
     if (points.length === 0) {
       return null;
     }
 
     return (
-      <ul className="points-block" id="points-block">
-        {points.map(i => this.renderPoint(i))}
-      </ul>
+      <List
+        items={points}
+        order={itemsOrder}
+        updatePointsOrder={this.props.updatePointsOrder}
+        removePoint={this.removePoint}
+      />
     )
   }
+
   
   render() {
     return (
@@ -69,6 +61,7 @@ class App extends Component {
               {this.renderPointsBlock()}
             </div>
 
+            {this.props.yaMapDataRequest}
             <div className="map">
               <Map
                 width="100%"
