@@ -11,14 +11,15 @@
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.5",
+    "react-select": "^2.4.1",
     "react-sortable": "^2.0.0",
     "react-sortablejs": "^1.5.1",
+    "react-yandex-maps": "^3.0.2",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "sortablejs": "^1.6.1",
-    "yandex-map-react": "^1.1.1"
+    "sortablejs": "^1.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
