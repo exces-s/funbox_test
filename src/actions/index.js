@@ -12,8 +12,8 @@ export const removePoint = createAction('POINT_REMOVE');
 export const updatePointsOrder = createAction('POINTS_ORDER_UPDATE');
 
 export const getYaMapDataRequest = createAction('YA_MAP_DATA_GET_REQUEST');
-export const getYaMapDataSuccess = createAction('YA_MAP_DATA_GET_SUCCESS');
 export const getYaMapDataFailure = createAction('YA_MAP_DATA_GET_FAILURE');
+export const getYaMapDataSuccess = createAction('YA_MAP_DATA_GET_SUCCESS', ({ geoObject }) => ({ ...geoObject, id: uniqueId(), type: 'geoObject' }));
 
 export const getYaMapData = ({ query }) => async (dispatch) => {
   dispatch(getYaMapDataRequest())

@@ -6,7 +6,6 @@ import { omit } from 'lodash';
 
 const points = handleActions({
   [actions.addPoint](state, { payload }) {
-    console.log('addPoint', payload)
     return { ...state, [payload.id]: payload };
   },
   [actions.removePoint](state, { payload: { id } }) {
@@ -16,13 +15,13 @@ const points = handleActions({
 
 
 const geoObjects = handleActions({
-  [actions.getYaMapDataSuccess](state, { payload: { geoObject } }) {
-    return [...state, geoObject];
+  [actions.getYaMapDataSuccess](state, { payload }) {
+    return { ...state, [payload.id]: payload };
   },
   [actions.clearGeoObjects]() {
-    return [];
+    return {};
   },
-}, []);
+}, {});
 
 
 const inputText = handleActions({
