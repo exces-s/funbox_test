@@ -1,3 +1,6 @@
+import { omit } from 'lodash';
+
+
 export const createLable = (geoObject) => {
   const name = geoObject.name;
   const description = geoObject.description;
@@ -7,5 +10,11 @@ export const createLable = (geoObject) => {
 
 export const createOptionsArr = (geoObjects) => {
   const keys = Object.keys(geoObjects);
-  return keys.map(id => ({ value: id, label: createLable(geoObjects[id]) }))
+  return keys.map(id => ({ value: { id }, label: createLable(geoObjects[id]) }))
+}
+
+export const createPointObject = (geoObject) => {
+  const rawPoint = omit(geoObject, ['id', 'type'])
+
+  return { ...rawPoint, type: 'point' }
 }
