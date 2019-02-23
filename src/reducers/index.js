@@ -5,16 +5,24 @@ import { omit } from 'lodash';
 
 
 const points = handleActions({
-  [actions.getYaMapDataSuccess](state, { payload }) {
-    return { ...state, ...payload };
-  },
   [actions.addPoint](state, { payload }) {
+    console.log('addPoint', payload)
     return { ...state, [payload.id]: payload };
   },
   [actions.removePoint](state, { payload: { id } }) {
     return omit(state, id);
   },
 }, {});
+
+
+const geoObjects = handleActions({
+  [actions.getYaMapDataSuccess](state, { payload: { geoObject } }) {
+    return [...state, geoObject];
+  },
+  [actions.clearGeoObjects]() {
+    return [];
+  },
+}, []);
 
 
 const inputText = handleActions({
@@ -25,6 +33,7 @@ const inputText = handleActions({
     return '';
   }
 }, '');
+
 
 const itemsOrder = handleActions({
   [actions.addPoint](state, { payload }) {
@@ -38,7 +47,8 @@ const itemsOrder = handleActions({
   },
 }, []);
 
-const yaMapDataRequest = handleActions({
+
+const yaMapDataFetchingState = handleActions({
   [actions.getYaMapDataRequest]() {
     return 'requested';
   },
@@ -55,5 +65,6 @@ export default combineReducers({
   points,
   inputText,
   itemsOrder,
-  yaMapDataRequest
+  geoObjects,
+  yaMapDataFetchingState,
 });
