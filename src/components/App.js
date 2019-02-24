@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { YMaps } from 'react-yandex-maps';
-
 import './App.css';
 import List from './List';
 import FormContainer from '../containers/FormContainer';
@@ -8,7 +7,7 @@ import YaMapContainer from '../containers/YaMapContainer';
 // import Cross from '../cross.svg';
 
 
-export default class App extends Component {
+export default class App extends Component {  
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.getYaMapData({ query: this.props.inputText });
@@ -19,7 +18,7 @@ export default class App extends Component {
   }
   
   renderPointsBlock() {
-    const { points, itemsOrder } = this.props;
+    const { points, pointsOrder } = this.props;
 
     if (points.length === 0) {
       return null;
@@ -28,7 +27,7 @@ export default class App extends Component {
     return (
       <List
         items={points}
-        order={itemsOrder}
+        order={pointsOrder}
         updatePointsOrder={this.props.updatePointsOrder}
         removePoint={this.removePoint}
       />

@@ -34,7 +34,7 @@ const inputText = handleActions({
 }, '');
 
 
-const itemsOrder = handleActions({
+const pointsOrder = handleActions({
   [actions.addPoint](state, { payload }) {
     return [...state, payload.id];
   },
@@ -63,7 +63,7 @@ const yaMapDataFetchingState = handleActions({
 export default combineReducers({
   points,
   inputText,
-  itemsOrder,
+  pointsOrder,
   geoObjects,
   yaMapDataFetchingState,
 });

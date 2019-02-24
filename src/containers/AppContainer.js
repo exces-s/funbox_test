@@ -8,7 +8,7 @@ const mapStateToProps = state => {
   return {
     points: state.points,
     inputText: state.inputText,
-    itemsOrder: state.itemsOrder,
+    pointsOrder: state.pointsOrder,
     yaMapDataFetchingState: state.yaMapDataFetchingState,
   }
 }
