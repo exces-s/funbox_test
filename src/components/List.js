@@ -8,6 +8,8 @@ export default class List extends React.Component {
     this.props.updatePointsOrder({ items });
   }
 
+  handleDrop = (e) => e.preventDefault();
+
   render() {
     const { items, order } = this.props;
 
@@ -20,6 +22,7 @@ export default class List extends React.Component {
           sortId={i}
           point={items[id]}
           removePoint={this.props.removePoint}
+          onDrop={this.handleDrop}
         />
       );
     });
