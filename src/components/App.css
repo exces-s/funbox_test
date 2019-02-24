@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 .app {
@@ -16,13 +18,13 @@
   display: flex;
   flex-direction: column;
   
-
   background: yellowgreen;
 }
 
 .row {
   display: flex;
   justify-content: space-around;
+  height: 80%;
 }
 
 .column {
@@ -48,15 +50,7 @@
   margin: 20px 20px 20px 10px;
   width: 70%;
   min-width: 100px;
-  height: 50%;
   min-height: 400px;
 
   background: blanchedalmond;  
 }
-
-.ya-map {
-  width: 100%;
-  height: 100%;
-}
-
-
