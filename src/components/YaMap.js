@@ -1,11 +1,17 @@
 import React from 'react';
 import { Map, Placemark, Polyline } from 'react-yandex-maps';
-import { getCoordsArr, getLastPointCoords, getPolylineCoords, createLable } from '../lib';
+import {
+  getCoordsArr,
+  getLastPointCoords,
+  getPolylineCoords,
+  createLable
+} from '../lib';
 
 
 export default class YaMap extends React.Component {
-  handleDragend = (e) => {
-    console.log('DRAGEND', e)
+  handleDragEnd = (id) => (e) => {
+    const newCoords = e.originalEvent.target.geometry.getCoordinates();
+    this.props.updatePointCoords({ id, newCoords })
   }
   
   renderPoints() {
@@ -20,7 +26,7 @@ export default class YaMap extends React.Component {
       <Placemark 
         key={id}
         defaultGeometry={getCoordsArr(points[id])}
-        onDragend={this.handleDragend}
+        onDragEnd={this.handleDragEnd(id)}
         options={{ draggable: true }}
         properties={{
           iconCaption: createLable(points[id]),
@@ -54,6 +60,8 @@ export default class YaMap extends React.Component {
   
   render() {
     const { points, pointsOrder } = this.props;
+
+    console.log(points)
 
     const lastPointCoords = getLastPointCoords(pointsOrder, points)
     const defaultCoords = [53.26, 34.41]
