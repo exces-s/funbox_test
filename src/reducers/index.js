@@ -2,6 +2,7 @@ import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
 import * as actions from '../actions';
 import { omit } from 'lodash';
+import { getCoordsString } from '../lib';
 
 
 const points = handleActions({
@@ -10,6 +11,15 @@ const points = handleActions({
   },
   [actions.removePoint](state, { payload: { id } }) {
     return omit(state, id);
+  },
+  [actions.updatePointCoords](state, { payload: { id, newCoords } }) {
+    const stringCoords = getCoordsString(newCoords)
+
+    const innerPointObj = state[id].Point;
+    const newInnerPointObj = { ...innerPointObj, pos: stringCoords };
+    const newPoint = { ...state[id], Point: newInnerPointObj };
+
+    return { ...state, [id]: newPoint };
   },
 }, {});
 

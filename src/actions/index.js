@@ -7,9 +7,11 @@ export const updateInputText = createAction('INPUT_TEXT_UPDATE');
 
 export const clearGeoObjects = createAction('GEO_OBJECTS_CLEAR');
 
+export const updatePointsOrder = createAction('POINTS_ORDER_UPDATE');
+
 export const addPoint = createAction('POINT_ADD', ({ point }) => ({ ...point, id: uniqueId() }));
 export const removePoint = createAction('POINT_REMOVE');
-export const updatePointsOrder = createAction('POINTS_ORDER_UPDATE');
+export const updatePointCoords = createAction('POINT_UPDATE');
 
 export const getYaMapDataRequest = createAction('YA_MAP_DATA_GET_REQUEST');
 export const getYaMapDataFailure = createAction('YA_MAP_DATA_GET_FAILURE');
