@@ -38,3 +38,7 @@ export const getLastPointCoords = (pointsOrder, points) => {
 export const getPolylineCoords = (pointsOrder, points) => {
   return pointsOrder.map(id => getCoordsArr(points[id]))
 }
+
+export const getCoordsString = ([lat, lon]) => {
+  return [lon, lat].join(' ');
+}
