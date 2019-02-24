@@ -1,12 +1,7 @@
 import React from 'react';
-import { Map, Placemark } from 'react-yandex-maps';
+import { Map, Placemark, Polyline } from 'react-yandex-maps';
+import { getCoordsArr, getLastPointCoords, getPolylineCoords, createLable } from '../lib';
 
-
-const getCoordsArr = (geoObject) => {
-  const stringCoords = geoObject.Point.pos;
-  const [ lon, lat ] = stringCoords.split(' ');
-  return [lat, lon];
-}
 
 export default class YaMap extends React.Component {
   handleDragend = (e) => {
@@ -15,39 +10,65 @@ export default class YaMap extends React.Component {
   
   renderPoints() {
     const { points } = this.props;
-    const keys = Object.keys(points);
+    const ids = Object.keys(points);
 
-    if (keys.length === 0) {
+    if (ids.length === 0) {
       return null;
     }
 
-    return keys.map(key => (
+    return ids.map(id => (
       <Placemark 
-        key={key}
-        defaultGeometry={getCoordsArr(points[key])}
+        key={id}
+        defaultGeometry={getCoordsArr(points[id])}
         onDragend={this.handleDragend}
-        // balloonContent: 'цвет <strong>носика Гены</strong>',
-        options={{
-          draggable: true,
-        }}
+        options={{ draggable: true }}
         properties={{
-          iconCaption: 'текст',
-          balloonContentLayout: 'nhfnfn',
-        }}
+          iconCaption: createLable(points[id]),
+          hintContent: createLable(points[id]),
+          balloonContent: createLable(points[id]),
+        }}          
       />
     ))
   }
+
+  renderLines() {
+    const { points, pointsOrder } = this.props;
+    const coords = getPolylineCoords(pointsOrder, points)
+
+    if (pointsOrder.length <= 1) {
+      return null;
+    }
+
+    return (
+      <Polyline
+        geometry={coords}
+        options={{
+          balloonCloseButton: false,
+          strokeColor: '#000',
+          strokeWidth: 3,
+          strokeOpacity: 0.7,
+        }}
+      />
+    )
+  }
   
   render() {
-    console.dir(this.props.points)
+    const { points, pointsOrder } = this.props;
+
+    const lastPointCoords = getLastPointCoords(pointsOrder, points)
+    const defaultCoords = [53.26, 34.41]
+    const mapCenterCoords = lastPointCoords || defaultCoords
 
     return (
       <Map
         width="100%"
         height="100%"
-        defaultState={{ center: [55.75, 37.57], zoom: 9 }}
+        defaultState={{ center: defaultCoords, zoom: 9 }}
+        state={{ center: mapCenterCoords, zoom: 9 }}
+        modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
       >
         {this.renderPoints()}
+        {this.renderLines()}
       </Map>
     )
   }
