@@ -18,7 +18,6 @@ export default class List extends React.Component {
           onSortItems={this.onSortItems}
           items={order}
           sortId={i}
-
           point={items[id]}
           removePoint={this.props.removePoint}
         />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { sortable } from 'react-sortable';
+import { createLable } from '../lib';
 import './Item.css';
 
 
@@ -10,7 +11,7 @@ class Item extends React.Component {
     return (
       <li key={point.id} className="point" {...this.props}>
         <div className="text">
-          {point.name}
+          {createLable(point)}
         </div>
         <div className="close-btn" onClick={this.props.removePoint(point.id)}>
           X
