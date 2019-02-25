@@ -1,6 +1,7 @@
 import React from 'react';
+import debounce from "debounce-promise";
 import AsyncSelect from 'react-select/lib/Async';
-import { createPointObject } from '../lib';
+import { createPointObject, timeout } from '../lib';
 
 
 export default class Form extends React.Component {
@@ -18,15 +19,18 @@ export default class Form extends React.Component {
   fetchGeoObjects = async (query) => {
     this.props.clearGeoObjects();
     await this.props.getYaMapData({ query });
-    
+
     return this.props.optionsArr;
   }
-  
+
+  debouncedFetch = debounce(this.fetchGeoObjects, timeout, { leading: true })
+
   render() {
     const { inputText } = this.props;
     return (
       <AsyncSelect
-        loadOptions={this.fetchGeoObjects}
+        loadOptions={query => this.debouncedFetch(query)}
+        debounceInterval={2000}
         onInputChange={this.handleInputChange}
         onChange={this.handleChange}
         value={inputText}
