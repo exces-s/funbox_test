@@ -64,6 +64,9 @@ const yaMapDataFetchingState = handleActions({
   [actions.getYaMapDataSuccess]() {
     return 'successed';
   },
+  [actions.getEmptyYaMapDataSuccess]() {
+    return 'successed';
+  },
   [actions.getYaMapDataFailure]() {
     return 'failured';
   },
