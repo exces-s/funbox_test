@@ -1,4 +1,4 @@
-import { omit, last } from 'lodash';
+import { omit, last, isEmpty } from 'lodash';
 
 
 export const createLable = (geoObject) => {
@@ -9,6 +9,10 @@ export const createLable = (geoObject) => {
 }
 
 export const createOptionsArr = (geoObjects) => {
+  if (isEmpty(geoObjects)) {
+    return [];
+  }
+  
   const keys = Object.keys(geoObjects);
   return keys.map(id => ({ value: { id }, label: createLable(geoObjects[id]) }));
 }
@@ -42,3 +46,5 @@ export const getPolylineCoords = (pointsOrder, points) => {
 export const getCoordsString = ([lat, lon]) => {
   return [lon, lat].join(' ');
 }
+
+export const defaultCoords = [53.26, 34.41]; // Braynsk
