@@ -29,7 +29,6 @@ export default class YaMap extends React.Component {
         onDragEnd={this.handleDragEnd(id)}
         options={{ draggable: true }}
         properties={{
-          iconCaption: createLable(points[id]),
           hintContent: createLable(points[id]),
           balloonContent: createLable(points[id]),
         }}          
