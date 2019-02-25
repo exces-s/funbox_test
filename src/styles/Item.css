@@ -16,12 +16,13 @@
 
 .text {
   padding: 10px;
+  height: auto;
   width: calc(100% - 30px);
 }
 
 .close-btn {
   width: 30px;
-  height: 100%;
+  height: auto;
   cursor: pointer;
   color: #de350b;
   font-size: 25px;
