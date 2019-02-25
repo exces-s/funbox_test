@@ -6,10 +6,11 @@ import '../styles/List.css';
 export default class List extends React.Component {
   onSortItems = (items) => this.props.updatePointsOrder({ items });
 
+  // prevent unexpected FF navigation
   handleDrop = (e) => e.preventDefault();
 
   render() {
-    const { items, order } = this.props;
+    const { items, order, removePoint } = this.props;
 
     if (order.length === 0) {
       return null;
@@ -23,7 +24,7 @@ export default class List extends React.Component {
           items={order}
           sortId={i}
           point={items[id]}
-          removePoint={this.props.removePoint}
+          removePoint={removePoint}
           onDrop={this.handleDrop}
         />
       );

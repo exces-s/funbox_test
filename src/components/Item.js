@@ -6,17 +6,17 @@ import '../styles/Item.css';
 
 class Item extends React.Component {
   render() {
-    const { point } = this.props;
+    const { point, removePoint, ...rest } = this.props;
 
     return (
-      <li key={point.id} className="point" {...this.props}>
+      <li key={point.id} className="point" {...rest}>
         <div className="text">
           {createLable(point)}
         </div>
 
         <div 
           className="close-btn"
-          onClick={this.props.removePoint(point.id)}
+          onClick={removePoint(point.id)}
           title="Remove point"
         >
           &times;
