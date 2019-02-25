@@ -1,11 +1,6 @@
 import React from 'react';
 import { Map, Placemark, Polyline } from 'react-yandex-maps';
-import {
-  getCoordsArr,
-  getLastPointCoords,
-  getPolylineCoords,
-  createLable
-} from '../lib';
+import { getCoordsArr, createLable, defaultCoords } from '../lib';
 
 
 export default class YaMap extends React.Component {
@@ -36,9 +31,8 @@ export default class YaMap extends React.Component {
     ))
   }
 
-  renderLines() {
-    const { points, pointsOrder } = this.props;
-    const coords = getPolylineCoords(pointsOrder, points);
+  renderPolyline() {
+    const { polylineCoords, pointsOrder } = this.props;
 
     if (pointsOrder.length <= 1) {
       return null;
@@ -46,7 +40,7 @@ export default class YaMap extends React.Component {
 
     return (
       <Polyline
-        geometry={coords}
+        geometry={polylineCoords}
         options={{
           balloonCloseButton: false,
           strokeColor: '#000',
@@ -58,10 +52,7 @@ export default class YaMap extends React.Component {
   }
   
   render() {
-    const { points, pointsOrder } = this.props;
-
-    const lastPointCoords = getLastPointCoords(pointsOrder, points);
-    const defaultCoords = [53.26, 34.41]
+    const { lastPointCoords } = this.props;
     const mapCenterCoords = lastPointCoords || defaultCoords;
 
     return (
@@ -73,7 +64,7 @@ export default class YaMap extends React.Component {
         modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
       >
         {this.renderPoints()}
-        {this.renderLines()}
+        {this.renderPolyline()}
       </Map>
     );
   }

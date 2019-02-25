@@ -4,9 +4,7 @@ import '../styles/List.css';
 
 
 export default class List extends React.Component {
-  onSortItems = (items) => {
-    this.props.updatePointsOrder({ items });
-  }
+  onSortItems = (items) => this.props.updatePointsOrder({ items });
 
   handleDrop = (e) => e.preventDefault();
 

@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import Form from '../components/Form';
 import * as actionCreators from '../actions';
+import * as selectors from '../selectors';
 
 
-const mapStateToProps = ({ geoObjects, inputText }) => {
+const mapStateToProps = (state) => {
   return {
-    geoObjects,
-    inputText,
+    inputText: state.inputText,
+    geoObjects: state.geoObjects,
+    optionsArr: selectors.createOptionsArrSelector(state),
   }
 };
 

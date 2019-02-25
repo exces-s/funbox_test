@@ -1,6 +1,6 @@
 import React from 'react';
 import AsyncSelect from 'react-select/lib/Async';
-import { createOptionsArr, createPointObject } from '../lib';
+import { createPointObject } from '../lib';
 
 
 export default class Form extends React.Component {
@@ -19,7 +19,7 @@ export default class Form extends React.Component {
     this.props.clearGeoObjects();
     await this.props.getYaMapData({ query });
     
-    return createOptionsArr(this.props.geoObjects);
+    return this.props.optionsArr;
   }
   
   render() {
