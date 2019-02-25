@@ -1,15 +1,8 @@
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
-
 .app {
+  margin-top: 3%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background: grey;
 }
 
 .root {
@@ -17,40 +10,34 @@
   min-width: 600px;
   display: flex;
   flex-direction: column;
-  
-  background: yellowgreen;
+  box-shadow: rgba(70, 112, 145, 0.25) 0px 4px 8px;
+  border-radius: 4px;
+  background: #fff;
 }
 
 .row {
   display: flex;
   justify-content: space-around;
-  height: 80%;
+  height: 100%;
 }
 
 .column {
-  margin: 20px 10px 20px 20px;
+  margin: 20px 9px 20px 20px;
   display: flex;
   flex-direction: column;
-
   width: 30%;
-  background: rosybrown;
+  border-radius: 4px;
 }
 
 .form {
-  display: flex;
-  justify-content: center;
+  height: 38px;
 }
-
-.input {
-  width: 100%;
-}
-
 
 .map {
-  margin: 20px 20px 20px 10px;
+  margin: 20px 20px 20px 9px;
   width: 70%;
   min-width: 100px;
-  min-height: 400px;
-
-  background: blanchedalmond;  
+  min-height: 500px;
+  border-radius: 4px;
+  border: 1px solid hsl(0,0%,70%);
 }

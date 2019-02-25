@@ -1,0 +1,36 @@
+.point {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+}
+
+.point:last-child {
+  border-bottom: none;
+}
+
+.point:hover {
+  background: #deebff;
+}
+
+.text {
+  padding: 10px;
+  width: calc(100% - 30px);
+}
+
+.close-btn {
+  width: 30px;
+  height: 100%;
+  cursor: pointer;
+  color: #de350b;
+  font-size: 25px;
+  text-align: center;
+  align-self: stretch;
+}
+
+.close-btn:hover {
+  background: #de350b;
+  transition: 200ms;
+  color: #000;
+}
