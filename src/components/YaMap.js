@@ -61,8 +61,6 @@ export default class YaMap extends React.Component {
   render() {
     const { points, pointsOrder } = this.props;
 
-    console.log(points)
-
     const lastPointCoords = getLastPointCoords(pointsOrder, points)
     const defaultCoords = [53.26, 34.41]
     const mapCenterCoords = lastPointCoords || defaultCoords
@@ -71,8 +69,8 @@ export default class YaMap extends React.Component {
       <Map
         width="100%"
         height="100%"
-        defaultState={{ center: defaultCoords, zoom: 9 }}
-        state={{ center: mapCenterCoords, zoom: 9 }}
+        defaultState={{ center: defaultCoords, zoom: 7 }}
+        state={{ center: mapCenterCoords, zoom: 7 }}
         modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
       >
         {this.renderPoints()}

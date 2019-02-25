@@ -1,7 +1,7 @@
 import React from 'react';
 import { sortable } from 'react-sortable';
 import { createLable } from '../lib';
-import './Item.css';
+import '../styles/Item.css';
 
 
 class Item extends React.Component {
@@ -13,8 +13,13 @@ class Item extends React.Component {
         <div className="text">
           {createLable(point)}
         </div>
-        <div className="close-btn" onClick={this.props.removePoint(point.id)}>
-          X
+
+        <div 
+          className="close-btn" 
+          onClick={this.props.removePoint(point.id)}
+          title="Remove point"
+        >
+          &times;
         </div>
       </li>
     )

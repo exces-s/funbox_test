@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { YMaps } from 'react-yandex-maps';
-import './App.css';
+import '../styles/App.css';
 import List from './List';
 import FormContainer from '../containers/FormContainer';
 import YaMapContainer from '../containers/YaMapContainer';
@@ -42,11 +42,11 @@ export default class App extends Component {
           <div className="root">
             <div className="row">
               <div className="column">
-                <FormContainer />
+                <div className='form'>
+                  <FormContainer />
+                </div>
                 {this.renderPointsBlock()}
               </div>
-
-              {this.props.yaMapDataFetchingState}
               
               <div className="map">
                 <YaMapContainer />
