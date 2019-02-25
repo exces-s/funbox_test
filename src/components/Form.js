@@ -1,8 +1,11 @@
 import React from 'react';
 import debounce from "debounce-promise";
 import AsyncSelect from 'react-select/lib/Async';
+import texts from '../texts';
 import { createPointObject, timeout } from '../lib';
 
+
+const cmpTexts = texts.form;
 
 export default class Form extends React.Component {
   handleInputChange = (text) => this.props.updateInputText({ text });
@@ -34,10 +37,7 @@ export default class Form extends React.Component {
         onInputChange={this.handleInputChange}
         onChange={this.handleChange}
         value={inputText}
-        placeholder="Enter place name"
-        formatCreateLabel={
-          () => `Search for something`
-        }
+        placeholder={cmpTexts.placeholder}
         components={
           {
             DropdownIndicator: () => null,

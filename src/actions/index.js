@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAction } from 'redux-actions';
 import { uniqueId, isEmpty } from 'lodash';
 import { yaMapUrl } from '../lib';
-
+import texts from '../texts';
 
 export const updateInputText = createAction('INPUT_TEXT_UPDATE');
 
@@ -20,17 +20,18 @@ export const getEmptyYaMapDataSuccess = createAction('EMPTY_YA_MAP_DATA_GET_SUCC
 export const getYaMapDataSuccess = createAction('YA_MAP_DATA_GET_SUCCESS', ({ geoObject }) => ({ ...geoObject, id: uniqueId(), type: 'geoObject' }));
 
 export const getYaMapData = ({ query }) => async (dispatch) => {
-  dispatch(getYaMapDataRequest())
+  dispatch(getYaMapDataRequest());
   try {
     const responce = await axios.get(`${yaMapUrl}${query}`);
-    const rawGeoObjects = responce.data.response.GeoObjectCollection.featureMember
+    const rawGeoObjects = responce.data.response.GeoObjectCollection.featureMember;
 
     if (isEmpty(rawGeoObjects)) {
-      dispatch(getEmptyYaMapDataSuccess())
+      dispatch(getEmptyYaMapDataSuccess());
       return;
     }
-    rawGeoObjects.map(rawGeoObject => dispatch(getYaMapDataSuccess({ geoObject: rawGeoObject.GeoObject })))
+    rawGeoObjects.map(rawGeoObject => dispatch(getYaMapDataSuccess({ geoObject: rawGeoObject.GeoObject })));
   } catch(err) {
     dispatch(getYaMapDataFailure());
+    alert(texts.actions.errorAlert);
   }
 };

@@ -3,7 +3,10 @@ import { combineReducers } from 'redux';
 import * as actions from '../actions';
 import { omit } from 'lodash';
 import { getCoordsString } from '../lib';
+import texts from '../texts';
 
+
+const states = texts.asyncState;
 
 const points = handleActions({
   [actions.addPoint](state, { payload }) {
@@ -59,18 +62,18 @@ const pointsOrder = handleActions({
 
 const yaMapDataFetchingState = handleActions({
   [actions.getYaMapDataRequest]() {
-    return 'requested';
+    return states.requested;
   },
   [actions.getYaMapDataSuccess]() {
-    return 'successed';
+    return states.successed;
   },
   [actions.getEmptyYaMapDataSuccess]() {
-    return 'successed';
+    return states.successed;
   },
   [actions.getYaMapDataFailure]() {
-    return 'failured';
+    return states.failured;
   },
-}, 'none');
+}, states.default);
 
 
 export default combineReducers({

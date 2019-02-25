@@ -1,8 +1,10 @@
 import React from 'react';
 import { sortable } from 'react-sortable';
 import { createLable } from '../lib';
+import texts from '../texts';
 import '../styles/Item.css';
 
+const cmpTexts = texts.item;
 
 class Item extends React.Component {
   render() {
@@ -17,7 +19,7 @@ class Item extends React.Component {
         <div 
           className="close-btn"
           onClick={removePoint(point.id)}
-          title="Remove point"
+          title={cmpTexts.title}
         >
           &times;
         </div>
