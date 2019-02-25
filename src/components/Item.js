@@ -15,14 +15,14 @@ class Item extends React.Component {
         </div>
 
         <div 
-          className="close-btn" 
+          className="close-btn"
           onClick={this.props.removePoint(point.id)}
           title="Remove point"
         >
           &times;
         </div>
       </li>
-    )
+    );
   }
 }
 

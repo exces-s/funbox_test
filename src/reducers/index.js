@@ -67,7 +67,7 @@ const yaMapDataFetchingState = handleActions({
   [actions.getYaMapDataFailure]() {
     return 'failured';
   },
-}, 'none')
+}, 'none');
 
 
 export default combineReducers({

@@ -11,7 +11,7 @@ import {
 export default class YaMap extends React.Component {
   handleDragEnd = (id) => (e) => {
     const newCoords = e.originalEvent.target.geometry.getCoordinates();
-    this.props.updatePointCoords({ id, newCoords })
+    this.props.updatePointCoords({ id, newCoords });
   }
   
   renderPoints() {
@@ -38,7 +38,7 @@ export default class YaMap extends React.Component {
 
   renderLines() {
     const { points, pointsOrder } = this.props;
-    const coords = getPolylineCoords(pointsOrder, points)
+    const coords = getPolylineCoords(pointsOrder, points);
 
     if (pointsOrder.length <= 1) {
       return null;
@@ -54,15 +54,15 @@ export default class YaMap extends React.Component {
           strokeOpacity: 0.7,
         }}
       />
-    )
+    );
   }
   
   render() {
     const { points, pointsOrder } = this.props;
 
-    const lastPointCoords = getLastPointCoords(pointsOrder, points)
+    const lastPointCoords = getLastPointCoords(pointsOrder, points);
     const defaultCoords = [53.26, 34.41]
-    const mapCenterCoords = lastPointCoords || defaultCoords
+    const mapCenterCoords = lastPointCoords || defaultCoords;
 
     return (
       <Map
@@ -75,7 +75,7 @@ export default class YaMap extends React.Component {
         {this.renderPoints()}
         {this.renderLines()}
       </Map>
-    )
+    );
   }
 }
                 

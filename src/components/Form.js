@@ -1,25 +1,25 @@
 import React from 'react';
 import AsyncSelect from 'react-select/lib/Async';
-import { createOptionsArr, createPointObject } from '../lib'
+import { createOptionsArr, createPointObject } from '../lib';
 
 
 export default class Form extends React.Component {
-  handleInputChange = (text) => this.props.updateInputText({ text })
+  handleInputChange = (text) => this.props.updateInputText({ text });
   
   handleChange = (option) => {
     const { geoObjects, addPoint } = this.props;
-    const { id } = option.value
-    const geoObject = geoObjects[id]
-    const point = createPointObject(geoObject)
+    const { id } = option.value;
+    const geoObject = geoObjects[id];
+    const point = createPointObject(geoObject);
 
-    addPoint({ point })
+    addPoint({ point });
   }
 
   fetchGeoObjects = async (query) => {
-    this.props.clearGeoObjects()
+    this.props.clearGeoObjects();
     await this.props.getYaMapData({ query });
     
-    return createOptionsArr(this.props.geoObjects)
+    return createOptionsArr(this.props.geoObjects);
   }
   
   render() {
@@ -41,6 +41,6 @@ export default class Form extends React.Component {
           }
         }
       />
-    )
+    );
   }
 }

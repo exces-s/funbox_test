@@ -10,13 +10,13 @@ export const createLable = (geoObject) => {
 
 export const createOptionsArr = (geoObjects) => {
   const keys = Object.keys(geoObjects);
-  return keys.map(id => ({ value: { id }, label: createLable(geoObjects[id]) }))
+  return keys.map(id => ({ value: { id }, label: createLable(geoObjects[id]) }));
 }
 
 export const createPointObject = (geoObject) => {
-  const rawPoint = omit(geoObject, ['id', 'type'])
+  const rawPoint = omit(geoObject, ['id', 'type']);
 
-  return { ...rawPoint, type: 'point' }
+  return { ...rawPoint, type: 'point' };
 }
 
 export const getCoordsArr = (geoObject) => {
@@ -26,17 +26,17 @@ export const getCoordsArr = (geoObject) => {
 }
 
 export const getLastPointCoords = (pointsOrder, points) => {
-  const lastOrderPointId = last(pointsOrder)
+  const lastOrderPointId = last(pointsOrder);
 
   if (!lastOrderPointId) {
-    return undefined
+    return undefined;
   }
 
-  return getCoordsArr(points[lastOrderPointId])
+  return getCoordsArr(points[lastOrderPointId]);
 }
 
 export const getPolylineCoords = (pointsOrder, points) => {
-  return pointsOrder.map(id => getCoordsArr(points[id]))
+  return pointsOrder.map(id => getCoordsArr(points[id]));
 }
 
 export const getCoordsString = ([lat, lon]) => {

@@ -4,7 +4,6 @@ import '../styles/App.css';
 import List from './List';
 import FormContainer from '../containers/FormContainer';
 import YaMapContainer from '../containers/YaMapContainer';
-// import Cross from '../cross.svg';
 
 
 export default class App extends Component {  
@@ -14,7 +13,7 @@ export default class App extends Component {
   }
 
   removePoint = (id) => () => {
-    this.props.removePoint({ id })
+    this.props.removePoint({ id });
   }
   
   renderPointsBlock() {
@@ -34,7 +33,6 @@ export default class App extends Component {
     )
   }
 
-  
   render() {
     return (
       <YMaps>
