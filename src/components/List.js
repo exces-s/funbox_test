@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from './Item';
-import './List.css';
+import '../styles/List.css';
 
 
 export default class List extends React.Component {
@@ -12,6 +12,10 @@ export default class List extends React.Component {
 
   render() {
     const { items, order } = this.props;
+
+    if (order.length === 0) {
+      return null;
+    }
 
     const listItems = order.map((id, i) => {
       return (

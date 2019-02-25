@@ -30,6 +30,16 @@ export default class Form extends React.Component {
         onInputChange={this.handleInputChange}
         onChange={this.handleChange}
         value={inputText}
+        placeholder="Enter place name"
+        formatCreateLabel={
+          () => `Search for something`
+        }
+        components={
+          {
+            DropdownIndicator: () => null,
+            IndicatorSeparator: () => null
+          }
+        }
       />
     )
   }
