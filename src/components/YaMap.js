@@ -1,5 +1,13 @@
 import React from 'react';
-import { Map, Placemark, Polyline } from 'react-yandex-maps';
+import {
+  Map,
+  Placemark,
+  Polyline,
+  FullscreenControl,
+  ZoomControl,
+  GeolocationControl,
+  TypeSelector
+} from 'react-yandex-maps';
 import { getCoordsArr, createLable, defaultCoords } from '../lib';
 
 
@@ -50,6 +58,22 @@ export default class YaMap extends React.Component {
       />
     );
   }
+
+  renderControls() {
+    return (
+      <React.Fragment>
+        <TypeSelector defaultState={{ expanded: false }} />
+        <FullscreenControl />
+        <GeolocationControl options={{ float: 'left' }} />
+        <ZoomControl
+          options={{
+            size: 'auto',
+            zoomDuration: 1000,
+          }}
+        />
+      </React.Fragment>
+    )
+  }
   
   render() {
     const { lastPointCoords } = this.props;
@@ -63,6 +87,7 @@ export default class YaMap extends React.Component {
         state={{ center: mapCenterCoords, zoom: 7 }}
         modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
       >
+        {this.renderControls()}
         {this.renderPoints()}
         {this.renderPolyline()}
       </Map>
