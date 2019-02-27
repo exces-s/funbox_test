@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests Should capturing snapshot of List with Items 1`] = `
+<ul
+  className="points-block"
+>
+  <li
+    className="point"
+    data-id={0}
+    draggable={true}
+    items={
+      Array [
+        1,
+        2,
+      ]
+    }
+    onDragEnd={[Function]}
+    onDragOver={[Function]}
+    onDragStart={[Function]}
+    onDrop={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="text"
+    >
+      Соединённые Штаты Америки
+    </div>
+    <div
+      className="close-btn"
+      title="Remove point"
+    >
+      ×
+    </div>
+  </li>
+  <li
+    className="point"
+    data-id={1}
+    draggable={true}
+    items={
+      Array [
+        1,
+        2,
+      ]
+    }
+    onDragEnd={[Function]}
+    onDragOver={[Function]}
+    onDragStart={[Function]}
+    onDrop={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="text"
+    >
+      Брянск (Россия)
+    </div>
+    <div
+      className="close-btn"
+      title="Remove point"
+    >
+      ×
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Snapshot tests Should capturing snapshot of empty List 1`] = `null`;
