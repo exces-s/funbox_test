@@ -50,3 +50,6 @@ export const getCoordsString = ([lat, lon]) => {
 export const defaultCoords = [53.26, 34.41]; // Braynsk
 export const timeout = 1000; // miliseconds
 export const yaMapUrl = `https://geocode-maps.yandex.ru/1.x/?apikey=a27d9311-b8cd-4e3b-8168-caee70813258&format=json&geocode=`; // without query
+
+// for dumb test
+export const sum = (a, b) => a + b;
