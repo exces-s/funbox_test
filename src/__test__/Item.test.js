@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme'
 import Item from '../components/Item';
-import { point1, point2 } from './__fixtures__';
+import { point_USA, point_BRN } from './__fixtures__';
 
 
 let mockFn;
@@ -14,7 +14,7 @@ beforeEach(() => {
 
 it('Should capturing snapshot of Item', () => {
   const renderedCmp =  renderer.create(
-    <Item point={point1} removePoint={mockFn}/>
+    <Item point={point_USA} removePoint={mockFn}/>
   ).toJSON();
 
   expect(renderedCmp).toMatchSnapshot();
@@ -23,7 +23,7 @@ it('Should capturing snapshot of Item', () => {
 
 it('Should invoke onClick functions', () => {
   const renderedCmp =  mount(
-    <Item point={point1} removePoint={mockFn}/>
+    <Item point={point_USA} removePoint={mockFn}/>
   );
 
   renderedCmp.find('.close-btn').simulate('click');
@@ -33,10 +33,10 @@ it('Should invoke onClick functions', () => {
 
 it('Should render short text (only name) properly', () => {
   const renderedCmp =  mount(
-    <Item point={point1} removePoint={mockFn}/>
+    <Item point={point_USA} removePoint={mockFn}/>
   );
   
-  const expected = point1.name;
+  const expected = point_USA.name;
   const text = renderedCmp.find('.text').text();
   expect(text).toEqual(expected);
 });
@@ -44,11 +44,11 @@ it('Should render short text (only name) properly', () => {
 
 it('Should render full text (name + description) properly', () => {
   const renderedCmp =  mount(
-    <Item point={point2} removePoint={mockFn}/>
+    <Item point={point_BRN} removePoint={mockFn}/>
   );
   
-  const name = point2.name;
-  const description = point2.description;
+  const name = point_BRN.name;
+  const description = point_BRN.description;
   const expected = `${name} (${description})`
   const text = renderedCmp.find('.text').text();
   expect(text).toEqual(expected);

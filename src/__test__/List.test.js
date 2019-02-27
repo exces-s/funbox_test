@@ -26,7 +26,7 @@ describe('Snapshot tests', () => {
   
   it('Should capturing snapshot of List with Items', () => {
     const renderedCmp = renderer.create(
-      <List items={fixtures.points1} order={fixtures.pointsOrder1} removePoint={mockFn} />
+      <List items={fixtures.points2} order={fixtures.pointsOrder2} removePoint={mockFn} />
     ).toJSON();
 
     expect(renderedCmp).toMatchSnapshot();
@@ -37,7 +37,7 @@ describe('Snapshot tests', () => {
 describe('Test behavior', () => {
   it('Should call onDrop-function', () => {
     const renderedCmp = mount(
-      <List items={fixtures.points3} order={fixtures.pointsOrder3} removePoint={mockFn} />
+      <List items={fixtures.points1} order={fixtures.pointsOrder1} removePoint={mockFn} />
     );
       
     renderedCmp.find('li').simulate('drop');
@@ -47,7 +47,7 @@ describe('Test behavior', () => {
 
   it('Should call onDrop-function', () => {
     const renderedCmp = mount(
-      <List items={fixtures.points3} order={fixtures.pointsOrder3} removePoint={mockFn} />
+      <List items={fixtures.points1} order={fixtures.pointsOrder1} removePoint={mockFn} />
     );
       
     renderedCmp.find('li').simulate('drop');

@@ -61,9 +61,9 @@ describe('Test behavior', () => {
 
   it('Should create rawPoint and call addPoint', () => {
     const fn = renderedCmp.instance().handleChange;
-    fn(fixtures.option11);
+    fn(fixtures.option_USA);
 
-    const expected = { point: fixtures.rawPoint1};
+    const expected = { point: fixtures.rawPoint_USA};
     expect(addPoint).toHaveBeenCalledWith(expected);
   });
 
