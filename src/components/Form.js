@@ -30,10 +30,10 @@ export default class Form extends React.Component {
 
   render() {
     const { inputText } = this.props;
+
     return (
       <AsyncSelect
         loadOptions={query => this.debouncedFetch(query)}
-        debounceInterval={2000}
         onInputChange={this.handleInputChange}
         onChange={this.handleChange}
         value={inputText}
