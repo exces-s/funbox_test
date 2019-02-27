@@ -1,26 +1,27 @@
 import { createPointObject } from '../../lib';
 
-
+// texts
 export const emptyInputText = '';
 export const notEmptyInputText = 'test';
 
 // point Ids
-export const id1 = 1;
-export const id2 = 2;
-export const id3 = 3;
+export const id_p_USA = 1;
+export const id_p_BRN = 2;
+export const id_p_MSK = 3;
 
 // geoObject Ids
-export const id11 = 11;
-export const id22 = 22;
-export const id33 = 33;
+export const id_go_USA = 11;
+export const id_go_BRN = 22;
+export const id_go_MSK = 33;
 
-
-export const option11 = {
+// options
+export const option_USA = {
   label: 'Соединённые Штаты Америки',
   value: { id: '11' },
 }
 
-export const geoObject11 = {
+// geoObjects
+export const geoObject_USA = {
   metaDataProperty: {
     GeocoderMetaData: {
       kind: 'country',
@@ -58,8 +59,7 @@ export const geoObject11 = {
   id: '11',
   type: 'geoObject'
 };
-
-export const geoObject22 = {
+export const geoObject_BRN = {
   metaDataProperty: {
     GeocoderMetaData: {
       kind: 'locality',
@@ -123,8 +123,7 @@ export const geoObject22 = {
   id: '22',
   type: 'geoObject'
 };
-
-export const geoObject33 = {
+export const geoObject_MSK = {
   metaDataProperty: {
     GeocoderMetaData: {
       kind: 'province',
@@ -175,16 +174,27 @@ export const geoObject33 = {
   type: 'geoObject'
 };
 
-export const geoObjects1 = { [id11]: geoObject11 };
-export const geoObjects2 = { [id11]: geoObject11 , [id22]: geoObject22 };
-export const geoObjects3 = { [id11]: geoObject11 , [id22]: geoObject22 , [id33]: geoObject33 };
+// geoObjects states
+export const geoObjects1 = { 
+  [id_go_USA]: geoObject_USA
+};
+export const geoObjects2 = {
+  [id_go_USA]: geoObject_USA,
+  [id_go_BRN]: geoObject_BRN
+};
+export const geoObjects3 = {
+  [id_go_USA]: geoObject_USA,
+  [id_go_BRN]: geoObject_BRN,
+  [id_go_MSK]: geoObject_MSK
+};
 
+// rawPoints
+export const rawPoint_USA = createPointObject(geoObject_USA);
+export const rawPoint_BRN = createPointObject(geoObject_BRN);
+export const rawPoint_MSK = createPointObject(geoObject_MSK);
 
-export const rawPoint1 = createPointObject(geoObject11);
-export const rawPoint2 = createPointObject(geoObject22);
-export const rawPoint3 = createPointObject(geoObject33);
-
-export const point1 = {
+// pointObjects
+export const point_USA = {
   metaDataProperty: {
     GeocoderMetaData: {
       kind: 'country',
@@ -222,8 +232,7 @@ export const point1 = {
   type: 'point',
   id: '1'
 };
-
-export const point2 = {
+export const point_BRN = {
   metaDataProperty: {
     GeocoderMetaData: {
       kind: 'locality',
@@ -287,8 +296,7 @@ export const point2 = {
   type: 'point',
   id: '2'
 };
-
-export const point3 = {
+export const point_MSK = {
   metaDataProperty: {
     GeocoderMetaData: {
       kind: 'province',
@@ -339,12 +347,22 @@ export const point3 = {
   id: '3'
 };
 
-export const pointsOrder1 = [id1, id2];
-export const pointsOrder2 = [id3, id2, id1];
-export const pointsOrder3 = [id1];
+// pointsOrders
+export const pointsOrder1 = [id_p_USA];
+export const pointsOrder2 = [id_p_USA, id_p_BRN];
+export const pointsOrder3 = [id_p_MSK, id_p_BRN, id_p_USA];
 
-export const points1 = { [id1]: point1, [id2]: point2 };
-export const points2 = { [id1]: point1, [id2]: point2, [id3]: point3 };
-export const points3 = { [id1]: point1 };
-
+// points states
+export const points1 = {
+  [id_p_USA]: point_USA,
+};
+export const points2 = {
+  [id_p_USA]: point_USA,
+  [id_p_BRN]: point_BRN,
+};
+export const points3 = {
+  [id_p_USA]: point_USA,
+  [id_p_BRN]: point_BRN,
+  [id_p_MSK]: point_MSK,
+};
 
