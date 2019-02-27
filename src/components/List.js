@@ -4,10 +4,10 @@ import '../styles/List.css';
 
 
 export default class List extends React.Component {
-  onSortItems = (items) => this.props.updatePointsOrder({ items });
-
   // prevent unexpected FF navigation
   handleDrop = (e) => e.preventDefault();
+  
+  onSortItems = (items) => this.props.updatePointsOrder({ items });
 
   render() {
     const { items, order, removePoint } = this.props;

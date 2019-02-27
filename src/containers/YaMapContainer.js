@@ -11,5 +11,4 @@ const mapStateToProps = (state) => ({
   polylineCoords: selectors.polylineCoordsSelector(state)
 });
 
-
 export default connect(mapStateToProps, actionCreators)(YaMap);
