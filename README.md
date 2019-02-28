@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+"Редактор маршрутов" - это небольшое SPA, в котором пользователь в интерактивном режиме может создавать на карте маршрут, указывая начальную, конечную и промежуточные точки движения. Для каждой точки маршрута можно посмотреть ее адрес.
 
-## Available Scripts
+Попробовать можно здесь: https://funbox-test.herokuapp.com/
 
-In the project directory, you can run:
 
-### `npm start`
+## Использование:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Новую точку можно добавить, начав вводить ее название, конкретный адрес или координаты в поле ввода. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+По мере ввода пользователю будут предлагаться варианты, подходящие под его запрос. Выбрать итоговый можно курсором или клавишами-стрелками + Enter.
 
-### `npm test`
+Каждая введенная точка маршрута отображается в конце списка уже добавленных
+точек. Также на карте появляется маркер, обозначающий новую точку маршрута и карта центрируется на нем.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Маркеры на карте соединяются прямыми линиями в том порядке, в котором они
+находятся в списке. Полученная таким образом ломаная изображает маршрут.
 
-### `npm run build`
+Напротив каждой точки маршрута в списке находится кнопка удаления, при ее
+нажатии точка маршрута пропадает из списка, а с карты пропадает ее маркер.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Порядок точек маршрута в списке можно изменять перетаскиванием. При клике на маркер появляется балун, в котором отображается название соответствующей ему точки.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Маркеры на карте можно перетаскивать. Маршрутная линия, соединяющая маркеры автоматически перерисовывается.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Возможные варианты указания точки маршрута:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Указать точку можно несолькими способами:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Указать название страны, города и т.д: 
+Россия, США, Минск.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Указать полный адрес нужного места:
+Брянск, ул.Романа Брянского;
+Минск, Дзержинского, 5;
+Россия, Московская область, Мытищи, 1-й Рупасовский переулок, 17Б.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. Указать географические координаты. Распознаваемые виды координат (на примере г.Сидней, Австралия):
+`33°52'47.1"S 151°13'54.6"E`
+`S33.52471 E151.13546`
+`33.52471ю.ш. 151.13546в.д.`
 
-## Learn More
+Буквами обозначается одно из четырех направлений: N, E, W, S, или С, В, З, Ю, или "с.ш.", "в.д.", "з.д." и "ю.ш.". Между буквами и координатами допускаются пробелы.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Разделителем может быть пробел, запятая или точка с запятой. Слева и справа от символов-разделителей допускаются пробелы.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Дополнительно:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Приложение проверено на последних версиях Firefox и Chrome.
+Дизайн рассчитан только на десктопное использование.
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Локальное использование:
 
-### Making a Progressive Web App
+`git clone`
+`npm start` - запуск в деврежиме
+`npm test` - запуск тестов
+`npm test-watch` - запуск тестов в режиме наблюдения
+`npm run build` - сборка
+`npm test` - запуск тестов
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+## Известные проблемы и недочеты:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Сортировка перетаскиванием не очень хорошо работает в FF.
+2. При клике по полю инпута исчезают уже найденные опции.
+3. Используется полная библиотека `lodash`.
