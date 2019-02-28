@@ -1,6 +1,6 @@
 export default {
   form: {
-    placeholder: 'Enter place name',
+    placeholder: 'Start typing place name',
   },
   item: {
     title: 'Remove point',
