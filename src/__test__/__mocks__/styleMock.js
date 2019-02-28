@@ -1,2 +1,2 @@
-// mock style-files
+// mock import style-files
 module.exports = {};
