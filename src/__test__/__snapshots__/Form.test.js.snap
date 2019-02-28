@@ -16,7 +16,7 @@ exports[`Snapshot tests Should capturing snapshot of empty Form 1`] = `
       <div
         className="css-1492t68"
       >
-        Enter place name
+        Start typing place name
       </div>
       <div
         className="css-1g6gooi"
