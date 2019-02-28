@@ -16,13 +16,13 @@ class Item extends React.Component {
           {createLable(point)}
         </div>
 
-        <div 
+        <button 
           className="close-btn"
           onClick={removePoint(point.id)}
           title={cmpTexts.title}
         >
           &times;
-        </div>
+        </button>
       </li>
     );
   }
