@@ -2,7 +2,7 @@ import React from 'react';
 import debounce from "debounce-promise";
 import AsyncSelect from 'react-select/lib/Async';
 import texts from '../texts';
-import { createPointObject, timeout } from '../lib';
+import { createRawPointObject, timeout } from '../lib';
 
 
 const cmpTexts = texts.form;
@@ -14,7 +14,7 @@ export default class Form extends React.Component {
     const { geoObjects, addPoint } = this.props;
     const { id } = option.value;
     const geoObject = geoObjects[id];
-    const point = createPointObject(geoObject);
+    const point = createRawPointObject(geoObject);
 
     addPoint({ point });
   }
