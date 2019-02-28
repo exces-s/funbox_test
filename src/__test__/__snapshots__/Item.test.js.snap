@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should capturing snapshot of Item 1`] = `
+exports[`Snapshot tests Should capturing snapshot of Item 1`] = `
 <li
   className="point"
   draggable={true}
