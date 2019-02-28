@@ -7,11 +7,6 @@ import YaMapContainer from '../containers/YaMapContainer';
 
 
 export default class App extends Component {  
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.getYaMapData({ query: this.props.inputText });
-  }
-
   removePoint = (id) => () => {
     this.props.removePoint({ id });
   }
